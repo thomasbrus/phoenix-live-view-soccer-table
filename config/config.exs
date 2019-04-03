@@ -15,7 +15,8 @@ config :soccer_table, SoccerTableWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "pjF+wdN3OgKqPeVlg7AbHzw+aEgJkcq9/V592WJreLu8XPDRoKHecMgCBFjJZ0YR",
   render_errors: [view: SoccerTableWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: SoccerTable.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: SoccerTable.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "4Ql3Ac2o89Q9dotzIiLhiR6UpOLnS744"]
 
 # Configures Elixir's Logger
 config :logger, :console,

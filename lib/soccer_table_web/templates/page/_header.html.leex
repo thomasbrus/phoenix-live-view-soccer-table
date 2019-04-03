@@ -1,0 +1,10 @@
+<%= if @sort_by == @key do %>
+  <th class="p-2 bg-grey-lightest border-b text-blue bg-blue-lightest cursor-pointer" phx-click="sort-by" phx-value="<%= @key %>">
+    <%= @title %> <%= if @sort_direction == "asc", do: "▴", else: "▾" %>
+  </th>
+<% else %>
+  <th class="p-2 bg-grey-lightest border-b hover:text-blue hover:bg-blue-lightest cursor-pointer group" phx-click="sort-by" phx-value="<%= @key %>">
+    <%= @title %> <span class="invisible group-hover:visible">▴</span>
+  </th>
+<% end %>
+

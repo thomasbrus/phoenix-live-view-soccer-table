@@ -1,0 +1,55 @@
+<header class="flex items-center">
+  <h1 class="flex-grow">Standings</h1>
+
+  <form phx-submit="refresh">
+    <button type="submit" class="border-none rounded bg-blue text-white p-2" phx-disable-with="Refreshing…">Refresh</button>
+  </form>
+</header>
+
+<table class="w-full border mt-4">
+  <thead class="text-left">
+    <tr>
+      <%= render("_header.html", title: "#", sort_by: @sort_by, sort_direction: @sort_direction, key: "rank") %>
+      <%= render("_header.html", title: "Team", sort_by: @sort_by, sort_direction: @sort_direction, key: "team") %>
+      <%= render("_header.html", title: "Matches", sort_by: @sort_by, sort_direction: @sort_direction, key: "matches") %>
+      <%= render("_header.html", title: "Won", sort_by: @sort_by, sort_direction: @sort_direction, key: "won") %>
+      <%= render("_header.html", title: "Drawn", sort_by: @sort_by, sort_direction: @sort_direction, key: "drawn") %>
+      <%= render("_header.html", title: "Lost", sort_by: @sort_by, sort_direction: @sort_direction, key: "lost") %>
+      <%= render("_header.html", title: "Points", sort_by: @sort_by, sort_direction: @sort_direction, key: "points") %>
+      <%= render("_header.html", title: "Goal difference", sort_by: @sort_by, sort_direction: @sort_direction, key: "goal_difference") %>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for standing <- @standings do %>
+      <tr>
+        <td class="p-2 border-b text-center">
+          <%= standing.rank %>
+        </td>
+        <td class="p-2 border-b">
+          <div class=" flex items-center">
+            <img src="<%= team_logo_url(standing.team_id) %>" width="24" height="24" alt="<%= standing.team_name %>" />
+            <span class="ml-2"><%= standing.team_name %></span>
+          </div>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.matches %>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.matches_won %>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.matches_drawn %>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.matches_lost %>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.points %>
+        </td>
+        <td class="p-2 border-b">
+          <%= standing.goals_for %>-<%= standing.goals_against %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
