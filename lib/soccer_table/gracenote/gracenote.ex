@@ -4,7 +4,9 @@ defmodule SoccerTable.Gracenote do
 
   def get_standings do
     Enum.map(API.get_table(), fn json ->
-      %{"c_Team" => team} = json
+      %{"c_Rank" => rank} = json
+      %{"n_TeamID" => team_id} = json
+      %{"c_Team" => team_name} = json
       %{"n_Matches" => matches} = json
       %{"n_MatchesWon" => matches_won} = json
       %{"n_MatchesDrawn" => matches_lost} = json
@@ -14,7 +16,9 @@ defmodule SoccerTable.Gracenote do
       %{"n_GoalsAgainst" => goals_against} = json
 
       %Standings.Standing{
-        team: team,
+        rank: rank,
+        team_id: team_id,
+        team_name: team_name,
         matches: matches,
         matches_won: matches_won,
         matches_drawn: matches_drawn,

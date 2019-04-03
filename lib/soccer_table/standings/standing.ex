@@ -1,6 +1,8 @@
 defmodule SoccerTable.Standings.Standing do
   defstruct [
-    :team,
+    :rank,
+    :team_id,
+    :team_name,
     :matches,
     :matches_won,
     :matches_drawn,

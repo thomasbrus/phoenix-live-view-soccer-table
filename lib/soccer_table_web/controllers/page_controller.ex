@@ -2,6 +2,6 @@ defmodule SoccerTableWeb.PageController do
   use SoccerTableWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, "index.html", standings: SoccerTable.Standings.list())
   end
 end
