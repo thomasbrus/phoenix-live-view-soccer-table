@@ -1,5 +1,9 @@
 # SoccerTable
 
+<img width="1034" alt="Schermafbeelding 2019-04-23 om 22 16 17" src="https://user-images.githubusercontent.com/232034/56612930-d70fe400-6615-11e9-8156-cac77b47cb95.png">
+
+<hr />
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
